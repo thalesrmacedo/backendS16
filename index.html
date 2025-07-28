@@ -1,0 +1,26 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teste CORS</title>
+</head>
+<body>
+  <h1>Teste de Requisição com CORS</h1>
+  <button onclick="chamarAPI()">Chamar API</button>
+  <p id="resposta"></p>
+
+  <script>
+    function chamarAPI() {
+      fetch('http://localhost:3000/api/mensagem')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('resposta').innerText = data.mensagem;
+        })
+        .catch(err => {
+          console.error('Erro ao chamar API:', err);
+        });
+    }
+  </script>
+</body>
+</html>
